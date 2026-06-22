@@ -1,11 +1,12 @@
 package writers
 
 import (
-	"github.com/adagit94/gotils/queues"
+	"github.com/adagit94/qs/queues"
+	"github.com/adagit94/qs/tasks"
 )
 
 type saveFile[D buffData, R any] func(path string, data D) R
-type writeTask[R any] = queues.Task[R]
+type writeTask[R any] = tasks.Task[R]
 type pathQueue[R any] = queues.ChannelQueue[R]
 type pathsQueues[R any] map[string]*pathQueue[R]
 type buffSize uint8

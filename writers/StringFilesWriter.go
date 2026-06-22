@@ -2,7 +2,6 @@ package writers
 
 import (
 	"os"
-
 	"github.com/adagit94/gotils/fs"
 )
 
