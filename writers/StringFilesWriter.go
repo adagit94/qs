@@ -5,8 +5,8 @@ import (
 	"github.com/adagit94/gotils/fs"
 )
 
-func CreateStringFilesWriter(buffSize buffSize, perms os.FileMode) IFilesWriter[string, error] {
-	fwPtr := &filesWriter[string, error]{pathsQueues: make(pathsQueues[error]), buffSize: buffSize, saveFile: func(path string, data string) error {
+func CreateStringFilesWriter(buffSize BuffSize, perms os.FileMode) *FilesWriter[string, error] {
+	fwPtr := &FilesWriter[string, error]{PathsQueues: make(PathsQueues[error]), BuffSize: buffSize, Closed: make(chan bool, 1), SaveFile: func(path string, data string) error {
 		return fs.WriteString(path, data, perms)
 	}}
 
